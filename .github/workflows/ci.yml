@@ -3,12 +3,30 @@ name: CI
 on:
   pull_request:
   push:
-    branches: [main]
+    branches: [main, feature-conflict]
 
 jobs:
   check:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v4
-      - name: Say hello
-        run: echo "CI works"
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Check required files
+        run: |
+          test -f feature.txt
+          test -f hello.txt
+          test -f notes.txt
+
+      - name: Check feature file content
+        run: |
+          grep -q "Feature for issue add feature example #2" feature.txt
+
+      - name: Check PR template
+        run: |
+          test -f .github/pull_request_template.md
+          grep -q "Description" .github/pull_request_template.md
+
+      - name: CI success
+        run: echo "All CI checks passed!"
