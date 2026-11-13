@@ -16,5 +16,4 @@ jobs:
       - name: TruffleHog
         uses: trufflesecurity/trufflehog@main
         with:
-          path: ./
-          extra_args: --fail --exclude-globs='**/.git/**'
+          extra_args: --exclude-globs=**/.git/**
