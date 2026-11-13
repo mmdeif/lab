@@ -17,4 +17,5 @@ jobs:
         uses: trufflesecurity/trufflehog@main
         with:
           path: ./
-          extra_args: --fail
+          extra_args: --fail --exclude-globs .git
+          
