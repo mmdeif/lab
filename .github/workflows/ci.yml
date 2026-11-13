@@ -21,12 +21,12 @@ jobs:
 
       - name: Check feature file content
         run: |
-          grep -q "Feature for issue add feature example #2" feature.txt
+          grep -q "feature for issue #2" feature.txt
 
       - name: Check PR template
         run: |
           test -f .github/pull_request_template.md
-          grep -q "Description" .github/pull_request_template.md
+          grep -q "Описание изменений" .github/pull_request_template.md
 
       - name: CI success
         run: echo "All CI checks passed!"
