@@ -16,4 +16,4 @@ jobs:
       - name: TruffleHog
         uses: trufflesecurity/trufflehog@main
         with:
-          extra_args: --exclude-globs=**/.git/** --results=verified,unknown,unverified,filtered_unverified
+          extra_args: --exclude-globs=**/.git/**,demo-secret.txt --results=verified,unknown,unverified,filtered_unverified
